@@ -1,11 +1,7 @@
 import React from 'react';
 import 'assets/scss/App.scss';
 import { Item, statusList } from './Item';
-
 import imgCat from '../assets/img/item.png';
-
-
-
 
 const list = [
     {
@@ -14,12 +10,11 @@ const list = [
             title: "Нямушка",
             subTitle: "с фуа-гра",
             desc: "Сказочное заморское яство",
-            descSelectedHover: "Котэ не одобряет?",
+            descActiveHover: "Котэ не одобряет?",
 
             footerBuyText: "Чего сидишь? Порадуй котэ, ",
             footerTextActive: "Печень утки разварная с артишоками.",
             footerTextDisable: "Печалька, с фуа-гра закончился.",
-
 
             features: [
                 '10 порций',
@@ -35,7 +30,7 @@ const list = [
             title: "Нямушка",
             subTitle: "с рыбой",
             desc: "Сказочное заморское яство",
-            descSelectedHover: "Котэ не одобряет?",
+            descActiveHover: "Котэ не одобряет?",
 
             footerBuyText: "Чего сидишь? Порадуй котэ, ",
             footerTextActive: "Головы щучьи с чесноком да свежайшая сёмгушка.",
@@ -55,7 +50,7 @@ const list = [
             title: "Нямушка",
             subTitle: "с курой",
             desc: "Сказочное заморское яство",
-            descSelectedHover: "Котэ не одобряет?",
+            descActiveHover: "Котэ не одобряет?",
 
             footerBuyText: "Чего сидишь? Порадуй котэ, ",
             footerTextActive: "Филе из цыплят с трюфелями в бульоне.",
@@ -74,19 +69,15 @@ const list = [
 
 class App extends React.PureComponent {
     render() {
-
         return (
             <div className="b-layout">
                 <div className="b-container">
-
                     <div className="b-title">Ты сегодня покормил кота?</div>
-
                     <div className="b-item-list">
                         {
                             list.map((item) => {
                                 return <div className="b-item-list__item">
                                     <Item
-                                        img={item.img}
                                         info={item.info}
                                         initStatus={item.status}
                                     ></Item>
@@ -95,16 +86,10 @@ class App extends React.PureComponent {
                         }
                     </div>
                 </div>
-
                 <link href="https://fonts.googleapis.com/css?family=Exo+2:100,300,400" rel="stylesheet"/>
             </div>
         );
     }
 }
-
-
-
-
-
 
 export default App;

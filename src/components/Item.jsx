@@ -6,18 +6,15 @@ const statusList = {
     disable: "disable",
 };
 
-
 class Item extends React.Component {
 
     constructor(props){
         super();
-
         this.state = {
             status: props.initStatus,
             hover: false,
             canUseActiveHover: true
         };
-
         this.clickHandler = this.clickHandler.bind(this);
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
         this.handleMouseLeave = this.handleMouseLeave.bind(this);
@@ -40,6 +37,7 @@ class Item extends React.Component {
             hover: (this.state.status !== statusList.disable)
         })
     }
+
     handleMouseLeave(ev){
         this.setState({
             hover: false,
@@ -47,12 +45,9 @@ class Item extends React.Component {
         })
     }
 
-
     render() {
-        let {
-            status,
-            hover
-        } = this.state;
+
+        let { status, hover } = this.state;
 
         // Состояние наведения применяется к выбранной упаковке не е сразу,
         // а после того, как курсор ушел с нее после первоначального выбора.
@@ -66,17 +61,14 @@ class Item extends React.Component {
             subTitle,
             features,
             desc,
-            descSelectedHover,
+            descActiveHover,
             footerBuyText,
             footerTextActive,
             footerTextDisable,
             messure
         } = this.props.info;
 
-
-
-
-        let footerTextRes = <span>{ footerBuyText } <a href="#" className="b-item__buylink" onClick={this.clickHandler}>купи</a>.</span>;
+        let footerTextRes = null;
 
         switch(status){
             case statusList.active:
@@ -85,8 +77,12 @@ class Item extends React.Component {
             case statusList.disable:
                 footerTextRes = footerTextDisable;
                 break;
+            default:
+                if(!!footerBuyText && footerBuyText !== ''){
+                    footerTextRes = <span>{ footerBuyText } <a href="#" className="b-item__buylink" onClick={this.clickHandler}>купи</a>.</span>;
+                }
+                break;
         }
-
 
         return (
             <div className={"b-item" + (status ? " b-item--" + status : "") + (hover ? " hover" : "") }>
@@ -100,7 +96,7 @@ class Item extends React.Component {
                     </div>
 
                     <div className="b-item__content">
-                        <div className="b-item__desc">{ (status === statusList.active && hover) ? descSelectedHover : desc }</div>
+                        <div className="b-item__desc">{ (status === statusList.active && hover) ? descActiveHover : desc }</div>
 
                         <div className="b-item__title">{title}</div>
                         <div className="b-item__subtitle">{subTitle}</div>
@@ -119,9 +115,7 @@ class Item extends React.Component {
                         <div className="b-item__messure-letter">кг</div>
                     </div>
 
-                    <div className="b-item__footer">
-                        { footerTextRes }
-                    </div>
+                    <div className="b-item__footer">{ footerTextRes }</div>
 
                     <div className="b-item__area"
                          onClick={this.clickHandler}
