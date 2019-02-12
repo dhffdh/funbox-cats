@@ -2,7 +2,7 @@
 
 Решение тестового задания
 
-Описание: /dhffdh/funbox-cats/blob/master/docs/qt-html-css-js.pdf
+Описание: https://github.com/dhffdh/funbox-cats/blob/master/qt-html-css-js.pdf
 
 demo: https://dhffdh.github.io/funbox-cats/
 
