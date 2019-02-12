@@ -16,7 +16,7 @@ const list = [
             desc: "Сказочное заморское яство",
             descSelectedHover: "Котэ не одобряет?",
 
-            footerText: "Чего сидишь? Порадуй котэ, купи.",
+            footerBuyText: "Чего сидишь? Порадуй котэ, ",
             footerTextActive: "Печень утки разварная с артишоками.",
             footerTextDisable: "Печалька, с фуа-гра закончился.",
 
@@ -37,7 +37,7 @@ const list = [
             desc: "Сказочное заморское яство",
             descSelectedHover: "Котэ не одобряет?",
 
-            footerText: "Чего сидишь? Порадуй котэ, купи.",
+            footerBuyText: "Чего сидишь? Порадуй котэ, ",
             footerTextActive: "Головы щучьи с чесноком да свежайшая сёмгушка.",
             footerTextDisable: "Печалька, с рыбой закончился.",
 
@@ -57,7 +57,7 @@ const list = [
             desc: "Сказочное заморское яство",
             descSelectedHover: "Котэ не одобряет?",
 
-            footerText: "Чего сидишь? Порадуй котэ, купи.",
+            footerBuyText: "Чего сидишь? Порадуй котэ, ",
             footerTextActive: "Филе из цыплят с трюфелями в бульоне.",
             footerTextDisable: "Печалька, с курой закончился.",
 

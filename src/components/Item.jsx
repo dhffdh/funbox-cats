@@ -24,6 +24,8 @@ class Item extends React.Component {
     }
 
     clickHandler(ev){
+        ev.preventDefault();
+
         if(this.state.status === statusList.disable){
             return false
         }
@@ -65,14 +67,17 @@ class Item extends React.Component {
             features,
             desc,
             descSelectedHover,
-            footerText,
+            footerBuyText,
             footerTextActive,
             footerTextDisable,
             messure
         } = this.props.info;
 
 
-        let footerTextRes = footerText;
+
+
+        let footerTextRes = <span>{ footerBuyText } <a href="#" className="b-item__buylink" onClick={this.clickHandler}>купи</a>.</span>;
+
         switch(status){
             case statusList.active:
                 footerTextRes = footerTextActive;
@@ -84,11 +89,7 @@ class Item extends React.Component {
 
 
         return (
-            <div className={"b-item" + (status ? " b-item--" + status : "") + (hover ? " hover" : "") }
-                 onClick={this.clickHandler}
-                 onMouseEnter={this.handleMouseEnter}
-                 onMouseLeave={this.handleMouseLeave}
-            >
+            <div className={"b-item" + (status ? " b-item--" + status : "") + (hover ? " hover" : "") }>
                 <div className="b-item__wrap">
 
                     <div className="b-item__head-border"></div>
@@ -122,6 +123,11 @@ class Item extends React.Component {
                         { footerTextRes }
                     </div>
 
+                    <div className="b-item__area"
+                         onClick={this.clickHandler}
+                         onMouseEnter={this.handleMouseEnter}
+                         onMouseLeave={this.handleMouseLeave}
+                    ></div>
                 </div>
             </div>
         );
